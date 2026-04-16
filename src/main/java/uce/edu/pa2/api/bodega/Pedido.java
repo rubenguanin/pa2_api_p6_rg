@@ -3,20 +3,21 @@ package uce.edu.pa2.api.bodega;
 public class Pedido {
 
     private String cliente;
-    private String roducto;
+    private String producto;
     private double total;
-    private String correo;
-
-    public Pedido(String cliente, String roducto, double total, String correo) {
-        this.cliente = cliente;
-        this.roducto = roducto;
-        this.total = total;
-        this.correo = correo;
-    }
+    private String destino;
 
     public Pedido() {
     }
 
+    public Pedido(String cliente, String producto, double total, String destino) {
+        this.cliente = cliente;
+        this.producto = producto;
+        this.total = total;
+        this.destino = destino;
+    }
+
+    // Metodos SET y GET
     public String getCliente() {
         return cliente;
     }
@@ -25,12 +26,12 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public String getRoducto() {
-        return roducto;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setRoducto(String roducto) {
-        this.roducto = roducto;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
     public double getTotal() {
@@ -41,12 +42,12 @@ public class Pedido {
         this.total = total;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getDestino() {
+        return destino;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
 }

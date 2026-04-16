@@ -2,23 +2,46 @@ package uce.edu.pa2.api.bodega;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+
 @ApplicationScoped
 public class PedidoService {
 
+    // Cnstructor
+    // @Inject
+    // private NotificadorMail notificadorMail;
+    // @Inject
+    // public PedidoService(NotificadorMail notificadorMail) {
+    // this.notificadorMail = notificadorMail;
+    // }
+
+    // Atributo
+    // @Inject
+    // private NotificadorMail notificadorMail;
+
+    // DI por metodo
+    /*
+     * private NotificadorMail notificadorMail;
+     * 
+     * @Inject
+     * public void setNotificador(NotificadorMail notificadorMail) {
+     * this.notificadorMail = notificadorMail;
+     * }
+     */
+
     @Inject
-    private NotificadorMail notificadorMail;
+    private NotificadorSelector selector;
 
     public void registrar(Pedido pedido) {
-
-        System.out.println("registrando pedido para el cliente: " + pedido.getCliente());
-        System.out.println("Cliente: " + pedido.getCliente());
+        System.out.println("Registrando pedido");
+        System.out.println("cliente: " + pedido.getCliente());
         System.out.println("Total: " + pedido.getTotal());
-        System.out.println("GUARDANDO EN LA BASE DE DATOS ");
-        //Sin inyeccion
-        //NotficadorMail n1 = new NotificadorMail();
-        
-        //Con DI por el contenedor 
-        notificadorMail.enviar(pedido.getCorreo(), "Su pedido ha sido registrado con exito");
+        System.out.println("Guardando en la base de datos");
 
+        // NotificadorMail n1 = new NotificadorMail(); Sin inyeccion DI
+        
+        
+        // DI por el contenedor
+        Notificador notificador = this.selector.seleccionar(pedido.getTotal());
+        notificador.enviar(pedido.getDestino(), "Pedido registrado");
     }
 }
