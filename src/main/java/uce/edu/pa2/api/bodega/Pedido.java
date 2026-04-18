@@ -51,3 +51,4 @@ public class Pedido {
     }
 
 }
+//si esque el clinete tiene un destino registrado se enmvia pdf sino tiene se envias un pedido fisico 
