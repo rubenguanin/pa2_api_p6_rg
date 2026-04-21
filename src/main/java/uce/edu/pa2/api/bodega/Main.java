@@ -12,56 +12,51 @@ public class Main {
     }
 
     public static class App implements QuarkusApplication {
-
-        // Modelo de Ioc Dependency Injection
-        // @Inject
-        // private PedidoService pedidoService;
-
-        // @Override
-        // public int run(String... args) {
-        // MAIL (>100)
-        // Pedido pedido1 = new Pedido("Ruben Guanin", "Laptop", 150.0, "rb@gmail.com");
-        // this.pedidoService.registrar(pedido1);
-
-        // SMS (entre 50 y 100)
-        // Pedido pedido2 = new Pedido("Ruben Guanin", "Teclado", 80.0, "rb@gmail.com");
-        // this.pedidoService.registrar(pedido2);
-
-        // WHATSAPP (<50)
-        // Pedido pedido3 = new Pedido("Ruben Guanin", "Audifonos", 30.0,
-        // "rb@gmail.com");
-        // this.pedidoService.registrar(pedido3);
-
-        // return 0;
-        // }
-
-        // Modelo IoC Lookup
-        // private PedidoService pedidoService =
-        // CDI.current().select(PedidoService.class).get();
         @Inject
-        private PagoTarjetaCredito pagoT;
-        @Inject
-        private PagoEfectivo pagoE;
-        @Inject
-        private PedidoService pedidoService;
+        private AmbitoAplicacion ambitoAplicacion;
 
+        @Inject
+        private ClaseIntermedia claseIntermedia;
+
+        @Inject
+        private AmbitoRequest ambitoRequest;
+        @Inject
+        private AmbitoInject    ambitoInjec;
+        @Inject
+        private AmbitoSingleton ambitoSingleton;
         @Override
         public int run(String... args) {
 
-            // MAIL (>100)
-            Pedido pedido1 = new Pedido("Ruben Guanin", "Laptop", 150.0, "rb@gmail.com");
+            System.out.println(this.ambitoAplicacion);
 
-            this.pedidoService.registrar(pedido1, pagoE);
+            System.out.println(this.ambitoAplicacion.incrementar());
+            System.out.println(this.ambitoAplicacion.incrementar());
 
-            // SMS (entre 50 y 100)
-            Pedido pedido2 = new Pedido("Ruben Guanin", "Teclado", 80.0, null);
-            this.pedidoService.registrar(pedido2, pagoT);
+            System.out.println(this.ambitoAplicacion.incrementar());
 
-            // WHATSAPP (<50)
-            // Pedido pedido3 = new Pedido("Ruben Guanin", "Audifonos", 30.0,
-            // "rb@gmail.com");
+            this.claseIntermedia.imprimirObjetoValor();
 
-            // pedidoService.registrar(pedido3);
+           // System.out.println("Request Scope");
+            //System.out.println(this.ambitoRequest.incrementar();
+            //System.out.println(this.ambitoRequest.incrementar();
+            //System.out.println(this.ambitoRequest.incrementar();
+
+
+            System.out.println("-----Ambito dependet-------");
+            System.out.println(this.ambitoInjec.incrementar());
+            System.out.println(this.ambitoInjec.incrementar());
+            System.out.println(this.ambitoInjec.incrementar());
+
+            this.claseIntermedia.imprimirObjetoValorInject();
+ 
+
+            System.out.println("-----Ambito Singleton------");
+            System.out.println(this.ambitoSingleton.incrementar());
+            System.out.println(this.ambitoSingleton.incrementar());
+            System.out.println(this.ambitoSingleton.incrementar());
+
+
+            this.claseIntermedia.imprimirObjetoValorSingleton();
 
             return 0;
         }
