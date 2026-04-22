@@ -12,11 +12,11 @@ public class CafeteriaService {
     @Inject
     private TicketPedido ticketPedido;
 
-    public void procesarPedido() {
+    public void procesarPedido(String cliente) {
         contadorVisitasLocales.registraVisita();
-        System.out.println("Visitas: "+ contadorVisitasLocales.getVisitas());
+        System.out.println("Visitas: " + contadorVisitasLocales.getVisitas());
         System.out.println("Con iva: " + impuestos.getIva());
-        ticketPedido.generarTicket();
+        ticketPedido.generarTicket(cliente);
     }
 
 }

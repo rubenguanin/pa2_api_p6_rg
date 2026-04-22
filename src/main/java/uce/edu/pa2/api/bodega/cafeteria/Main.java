@@ -15,17 +15,20 @@ public class Main {
     public static class App implements QuarkusApplication {
 
         @Inject
-        CafeteriaService cafeteriaService;
+        private CafeteriaService cafeteriaService;
+        private String cliente1 = "Ruben";
+        private String cliente2 = "Alejandro";
+        private String cliente3 = "G";
 
         @Override
         public int run(String... args) throws Exception {
             System.out.println("INICIANDO CAFETERIA");
 
-            cafeteriaService.procesarPedido();
+            cafeteriaService.procesarPedido(cliente1);
 
-            cafeteriaService.procesarPedido();
+            cafeteriaService.procesarPedido(cliente2);
 
-            cafeteriaService.procesarPedido();
+            cafeteriaService.procesarPedido(cliente3);
 
             return 0;
         }

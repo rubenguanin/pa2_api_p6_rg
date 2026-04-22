@@ -4,8 +4,9 @@ import jakarta.inject.Singleton;
 
 @Singleton
 public class Impuestos {
-    private final double IVA  = 0.15;
-    public double getIva(){
+    private final double IVA = 0.15;
+
+    public double getIva() {
         return IVA;
     }
 

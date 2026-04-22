@@ -6,11 +6,9 @@ import uce.edu.pa2.api.bodega.Pedido;
 
 @Dependent
 public class TicketPedido {
-   private String cliente = "Rubén";
 
-    public void generarTicket() {
+    public void generarTicket(String cliente) {
         System.out.println("Ticket generado para: " + cliente);
     }
-    
 
 }
