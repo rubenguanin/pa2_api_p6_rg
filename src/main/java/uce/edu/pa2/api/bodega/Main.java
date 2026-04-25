@@ -19,6 +19,12 @@ public class Main {
         @Inject
         private EstadisticasVentasGlobales estadisticasVentasGlobales;
 
+        @Inject
+        private ProcesadorVentaService1 procesadorVentaService1;
+
+        @Inject
+        private ProcesadorVentaEnLinea procesadorVentaEnLinea;
+
         @Override
         public int run(String... args) {
             Venta v1 = new Venta("Ruben", 70.0);
@@ -29,8 +35,12 @@ public class Main {
             Venta v3 = new Venta("Pablo", 20.0);
             this.procesadorVentaService.procesar(v3);
 
+            Venta v4 = new Venta("Rigoberto", 20.0);
+            this.procesadorVentaService1.procesar(v4);
             this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
 
+            Venta v5 = new Venta("Rigoberto", 20.0);
+            this.procesadorVentaEnLinea.procesar(v5);
             return 0;
         }
 
@@ -38,3 +48,6 @@ public class Main {
     // .\mvnw.cmd quarkus:dev
 
 }
+
+
+ 
