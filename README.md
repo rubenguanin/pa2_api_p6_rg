@@ -77,3 +77,32 @@ Create your first JPA entity
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+Ejemplos de Scopes en Quarkus:
+
+@Application Scope: 
+Servicio de productos: maneja listar, crear y actualizar productos en toda la app
+Servicio de ventas: procesa todas las ventas del sistema
+Servicio de autenticación: valida usuarios en cada login
+Servicio de inventario: controla el stock global de productos
+Servicio de notificaciones: envía mensajes 
+Servicio de configuración: lee variables globales del sistema
+Servicio de reportes: genera reportes generales reutilizados
+
+@Dependent
+Validador de venta: se crea cada vez que se procesa una venta
+Calculador de descuento: calcula descuentos por cada compra
+Generador de factura: creacion de una factura diferente por cada venta
+Procesador de pago: maneja una transacción específica
+Formateador de datos: convierte datos fechas, monedas, etc
+Validador de formularios: valida datos ingresados por el usuario
+Calculador de impuestos: calcula impuestos para cada compra
+
+@Singleton 
+Conexión a API externa 
+Contador global de visitas o ventas.
+Gestor de configuración cargada al inicio.
+Servicio de monitoreo del sistema.
+Gestor de logs del sistema (una única instancia que registra todo)
+Administrador de caché global (almacena datos compartidos)
+Gestor de recursos del sistema (maneja conexiones o recursos únicos)
