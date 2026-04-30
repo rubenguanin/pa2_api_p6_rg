@@ -10,6 +10,8 @@ public class ProcesadorVentaServiceTiempo {
 
     @MedirTiempo // SE va a ejceutar antes del metodo el interceptor 
     //todo lo que este arriba de context.proced
+
+    @Log
     
     public void procesar(Venta venta) {
 
@@ -23,6 +25,10 @@ public class ProcesadorVentaServiceTiempo {
         }
 
         this.estadisticasVentasGlobales.registrarVenta(venta.getTotal());
+        System.out.println("FINAL DEL PEDIDO ");
+        
+        //THIS.REPROCESAR NO SE VA A EJECUTAR PQ ES UNA LLAMDA INTERNA 
+        //this.reProcesar(venta); 
     }
 
 @MedirTiempo
@@ -44,3 +50,5 @@ public class ProcesadorVentaServiceTiempo {
 
 
 }
+
+//CDI no garantiza la intercptacion 

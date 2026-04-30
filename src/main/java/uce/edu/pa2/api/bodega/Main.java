@@ -24,11 +24,10 @@ public class Main {
             Venta v1 = new Venta("Ruben", 70.0);
             this.procesadorVentaServiceTiempo.procesar(v1);
 
-            Venta v2 = new Venta("Ruben", 70.0);
-            this.procesadorVentaServiceTiempo.reProcesar(v2);
+            //Venta v2 = new Venta("Ruben", 70.0);
+            //this.procesadorVentaServiceTiempo.reProcesar(v2);
 
-            Venta v3 = new Venta("Ruben", 70.0);
-            this.inventarioService.registrar(v3);
+             
             return 0;
 
         }
