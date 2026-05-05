@@ -21,7 +21,7 @@ public class LogInterceptor {
         Object[] args = context.getParameters();
 
         for (int i = 0; i < args.length; i++) {
-            System.out.println("Argumentos " + args[i]g());
+            System.out.println("Argumentos " + args[i]);
             Object obj = args[i];
             Venta venta = (Venta) obj;
             System.out.println(venta.getCliente());
