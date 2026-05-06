@@ -9,17 +9,19 @@ public class ProcesadorCompraService {
 
     @Inject
     // Va a tartarla como una lista la cual vamos a poder iterar sobre ella
-    private Instance<Descuento> descuentos;
+    private Instance<Impuesto> impuesto;
 
     public void procesar(Compra compra) {
-        double total = compra.getSubtotal();
-        for (Descuento des : descuentos) {
-            total = des.aplicar(total);
-
+        double subtotal = compra.getSubtotal();
+        double total = subtotal;
+        for (Impuesto imp : impuesto) {
+            double valorImpuesto = imp.AplicarImpuesto(subtotal);
+            total += valorImpuesto;
             // des.aplicar(compra.getSubtotal());
         }
         compra.setTotal(total);
-        System.out.println("Su valor a a pagar es: " + compra.getTotal());
+        System.out.println("Subtotal: " + subtotal);
+        System.out.println("Su valor a a pagar mas Impuesto es: " + compra.getTotal());
     }
 
 }
