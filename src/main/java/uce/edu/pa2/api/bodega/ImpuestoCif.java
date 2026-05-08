@@ -1,7 +1,8 @@
 package uce.edu.pa2.api.bodega;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
-
+@Priority(1)
 @ApplicationScoped
 public class ImpuestoCif implements Impuesto {
 
